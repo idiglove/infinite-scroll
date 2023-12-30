@@ -1,0 +1,22 @@
+{
+  "name": "infinite-scroll",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idiglove/infinite-scroll.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idiglove/infinite-scroll/issues"
+  },
+  "homepage": "https://github.com/idiglove/infinite-scroll#readme",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
