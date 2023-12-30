@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && npm run build:cp-public",
-    "build:cp": "cp ./src/** ./dist"
+    "build": "tsc && cp ./src/*.html ./dist"
   },
   "repository": {
     "type": "git",

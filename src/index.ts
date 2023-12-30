@@ -1,8 +1,7 @@
-function helloWorld() {
-  const element = document.getElementById("hello-world");
-
+function main() {
+  const element = document.getElementById("app");
   if (element) {
     element.textContent = "Hello, World!";
   }
 }
-helloWorld();
+document.addEventListener("DOMContentLoaded", main);
