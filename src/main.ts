@@ -1,7 +1,10 @@
+import Card from "./Card/index";
+
 function main() {
   const element = document.getElementById("app");
+  const card = Card();
   if (element) {
-    element.textContent = "Hello, World!";
+    element.innerHTML = card;
   }
 }
 document.addEventListener("DOMContentLoaded", main);
