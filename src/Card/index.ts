@@ -1,8 +1,14 @@
-// import fs from "fs";
-import template from "./index.html?raw";
+import card from "./index.html?raw";
 
-const Card = () => {
-  return template;
-};
+const template = document.createElement("template");
+template.innerHTML = card;
 
-export default Card;
+class CardItem extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot?.appendChild(template.content.cloneNode(true));
+  }
+}
+
+customElements.define("card-item", CardItem);
