@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <head>
     <title>Infinite Scroll</title>
+    <style>
+        main {
+            width: 300px;
+            margin: 0 auto;
+        }
+        .virtual {
+            position: absolute;
+            height: 200px;
+            top: -200px;
+            width: 100%;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
+    <main class="list">
         <card-item></card-item>
+        <card-item></card-item>
+    </main>
+    <div class="more">
+        <!-- <p class="virtual"></p> -->
+        Loading...
     </div>
     <script src="src/Card/index.ts" type="module"></script>
+    <script src="src/main.ts" type="module"></script>
 </body>
 </html>
