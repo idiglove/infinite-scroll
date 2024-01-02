@@ -1,24 +1,34 @@
 function main() {
+  let page: null | number = 1;
+  const limit = 10;
   const $list = document.querySelector(".list")!;
-  // Simulate a request to load data and render it to the list element;
-  function loadItems(number: number) {
-    new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(Array(number).fill(null));
-      }, 1000);
-    }).then((data: any) => {
-      data.forEach(() => {
-        const item = document.querySelector("card-item")?.cloneNode(true)!;
-        $list.append(item);
-      });
+  const loadItems = async (number: number) => {
+    const data = await fetch(
+      `http://localhost:3000/posts?_page=${number}&_limit=${limit}`
+    );
+    const items = await data.json();
+    if (items.length === 0) {
+      page = null;
+    }
+    items.forEach((info: any) => {
+      const item = document.querySelector("card-item")?.cloneNode(true)
+        .shadowRoot!;
+      item
+        .querySelector(".card__image")
+        .getElementsByTagName("img")?.[0]
+        ?.setAttribute("src", info.image);
+      item.querySelector(".card__title").textContent = info.title;
+      item.querySelector(".card__text").textContent = info.content;
+      $list.append(item);
     });
-  }
+  };
 
   const intersectionObserver = new IntersectionObserver((entries) => {
     if (entries[0].intersectionRatio <= 0) return;
-    loadItems(10);
+    if (page) {
+      loadItems(page++);
+    }
   });
-  // start observing
   intersectionObserver.observe(document.querySelector(".more")!);
 }
 document.addEventListener("DOMContentLoaded", main);

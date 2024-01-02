@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "db": "json-server api/db.cjs",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
@@ -20,8 +21,12 @@
   },
   "homepage": "https://github.com/idiglove/infinite-scroll#readme",
   "devDependencies": {
+    "@faker-js/faker": "^8.3.1",
     "@types/node": "^20.10.6",
     "typescript": "^5.3.3",
     "vite": "^5.0.10"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
   }
 }
