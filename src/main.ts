@@ -1,6 +1,6 @@
 function main() {
   let page: null | number = 1;
-  const limit = 10;
+  const limit = 100;
   const $list = document.querySelector(".list")!;
   const loadItems = async (number: number) => {
     const data = await fetch(
@@ -9,6 +9,7 @@ function main() {
     const items = await data.json();
     if (items.length === 0) {
       page = null;
+      document.querySelector(".more")?.remove();
     }
     items.forEach((info: any) => {
       const item = document.querySelector("card-item")?.cloneNode(true)
@@ -27,6 +28,8 @@ function main() {
     if (entries[0].intersectionRatio <= 0) return;
     if (page) {
       loadItems(page++);
+    } else {
+      document.querySelector(".more")?.remove();
     }
   });
   intersectionObserver.observe(document.querySelector(".more")!);
