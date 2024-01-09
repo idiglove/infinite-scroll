@@ -2,9 +2,13 @@
 <head>
     <title>Infinite Scroll</title>
     <style>
+        .wrapper {
+            overflow: visible;
+        }
         main {
             width: 500px;
             margin: 0 auto;
+            overflow: hidden;
         }
         .virtual {
             position: absolute;
@@ -16,10 +20,13 @@
     </style>
 </head>
 <body>
-    <main class="list">
-        <card-item></card-item>
-        <card-item></card-item>
-    </main>
+    <div class="wrapper">
+        <main class="list">
+            <!-- <card-item></card-item>
+            <card-item></card-item> -->
+        </main>
+
+    </div>
     <div class="more">
         <!-- <p class="virtual"></p> -->
         Loading...
