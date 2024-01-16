@@ -90,6 +90,15 @@ const virtualize = ({ windowHeight, cardHeight, items, currentScrollPos }) => {
 
   $list.replaceChildren();
   console.log({ startIndex, item: items[startIndex] });
+
+
+  // if (scrollStart > cardHeight * 3) {
+  //   for (var i = 0; i < items.length; i++) {
+  //     items[i].innerHTML = itemsObj[itemsObj.length - (itemsLength - i)];
+  //   }
+  // }
+
+
   for (let i = startIndex; i < limit; i++) {
     const info = items[i];
     if (!info) {
